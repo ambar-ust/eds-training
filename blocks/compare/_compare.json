@@ -100,7 +100,7 @@
         },
         {
           "component": "text",
-          "name": "Title",
+          "name": "title",
           "label": "title",
           "valueType": "string"
         }
