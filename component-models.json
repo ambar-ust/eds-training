@@ -183,10 +183,16 @@
     "id": "compare",
     "fields": [
       {
+        "component": "text",
+        "name": "title",
+        "label": "Compare Title",
+        "valueType": "string"
+      },
+      {
         "component": "container",
-        "name": "compareItem1",
-        "label": " Compare Item1",
-        "multi": false,
+        "name": "items",
+        "label": "Compare Items",
+        "multi": true,
         "fields": [
           {
             "component": "reference",
@@ -202,48 +208,33 @@
           },
           {
             "component": "text",
-            "name": "item1Title",
-            "label": "Item 1 Title",
+            "name": "itemName",
+            "label": "Item Name",
             "valueType": "string"
           }
         ]
+      }
+    ]
+  },
+  {
+    "id": "compareParameter",
+    "fields": [
+      {
+        "component": "text",
+        "name": "title",
+        "label": "Parameter Title",
+        "valueType": "string"
       },
       {
         "component": "container",
-        "name": "compareItem2",
-        "label": " Compare Item2",
-        "multi": false,
-        "fields": [
-          {
-            "component": "reference",
-            "name": "image",
-            "label": "Image",
-            "valueType": "string"
-          },
-          {
-            "component": "text",
-            "name": "imageAlt",
-            "label": "Image Alt Text",
-            "valueType": "string"
-          },
-          {
-            "component": "text",
-            "name": "item2Title",
-            "label": "Item 2 Title",
-            "valueType": "string"
-          }
-        ]
-      },
-      {
-        "component": "container",
-        "name": "compareParamter",
-        "label": " Compare Parameters",
+        "name": "parameters",
+        "label": "Compare Parameters",
         "multi": true,
         "fields": [
           {
             "component": "text",
-            "name": "Title",
-            "label": "Title",
+            "name": "parameterName",
+            "label": "Parameter Name",
             "valueType": "string"
           },
           {
@@ -259,12 +250,6 @@
             "valueType": "string"
           }
         ]
-      },
-      {
-        "component": "text",
-        "name": "title",
-        "label": "title",
-        "valueType": "string"
       }
     ]
   },

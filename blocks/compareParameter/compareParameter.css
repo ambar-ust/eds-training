@@ -1,0 +1,58 @@
+/* compare parameter block */
+.compare-parameter {
+  margin: 2rem 0;
+}
+
+.compare-parameter .title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.compare-parameter .parameters {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.compare-parameter .parameter-item {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1rem;
+  padding: 0.75rem;
+  border: 1px solid var(--light-color);
+  border-radius: 0.25rem;
+  background-color: var(--background-color);
+}
+
+.compare-parameter .parameter-name {
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+}
+
+.compare-parameter .parameter-value {
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (width <= 768px) {
+  .compare-parameter .parameter-item {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+    text-align: center;
+  }
+  
+  .compare-parameter .parameter-name {
+    justify-content: center;
+    border-bottom: 1px solid var(--light-color);
+    padding-bottom: 0.5rem;
+  }
+  
+  .compare-parameter .parameter-value {
+    padding: 0.25rem 0;
+  }
+}
