@@ -205,8 +205,8 @@
           }
         },
         {
-          "title": "CompareParamter",
-          "id": "compareParamter",
+          "title": "Compare Parameter",
+          "id": "compareParameter",
           "plugins": {
             "xwalk": {
               "page": {
