@@ -51,6 +51,13 @@
               "valueType": "string"
             }
           ]
+        },
+        {
+          "component": "aem-content",
+          "name": "parameters",
+          "label": "Comparison Parameters",
+          "filter": "compareParameter",
+          "multi": true
         }
       ]
     }
@@ -58,7 +65,7 @@
   "filters": [
     {
       "id": "compare",
-      "components": ["text", "image"]
+      "components": ["text", "image", "compareParameter"]
     }
   ]
 }

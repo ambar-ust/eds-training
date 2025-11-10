@@ -213,6 +213,13 @@
             "valueType": "string"
           }
         ]
+      },
+      {
+        "component": "aem-content",
+        "name": "parameters",
+        "label": "Comparison Parameters",
+        "filter": "compareParameter",
+        "multi": true
       }
     ]
   },
