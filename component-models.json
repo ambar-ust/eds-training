@@ -180,6 +180,89 @@
     ]
   },
   {
+    "id": "compare",
+    "fields": [
+      {
+        "component": "container",
+        "name": "compareItem1",
+        "label": " Compare Item1",
+        "multi": false,
+        "fields": [
+          {
+            "component": "reference",
+            "name": "image",
+            "label": "Image",
+            "valueType": "string"
+          },
+          {
+            "component": "text",
+            "name": "imageAlt",
+            "label": "Image Alt Text",
+            "valueType": "string"
+          },
+          {
+            "component": "text",
+            "name": "item1Title",
+            "label": "Item 1 Title",
+            "valueType": "string"
+          }
+        ]
+      },
+      {
+        "component": "container",
+        "name": "compareItem2",
+        "label": " Compare Item2",
+        "multi": false,
+        "fields": [
+          {
+            "component": "reference",
+            "name": "image",
+            "label": "Image",
+            "valueType": "string"
+          },
+          {
+            "component": "text",
+            "name": "imageAlt",
+            "label": "Image Alt Text",
+            "valueType": "string"
+          },
+          {
+            "component": "text",
+            "name": "item2Title",
+            "label": "Item 2 Title",
+            "valueType": "string"
+          }
+        ]
+      },
+      {
+        "component": "container",
+        "name": "compareParamter",
+        "label": " Compare Parameters",
+        "multi": true,
+        "fields": [
+          {
+            "component": "text",
+            "name": "Title",
+            "label": "Title",
+            "valueType": "string"
+          },
+          {
+            "component": "text",
+            "name": "item1Value",
+            "label": "Item 1 Value",
+            "valueType": "string"
+          },
+          {
+            "component": "text",
+            "name": "item2Value",
+            "label": "Item 2 Value",
+            "valueType": "string"
+          }
+        ]
+      }
+    ]
+  },
+  {
     "id": "fragment",
     "fields": [
       {
@@ -211,18 +294,6 @@
         "name": "text",
         "value": "",
         "label": "Text",
-        "valueType": "string"
-      }
-    ]
-  },
-  {
-    "id": "compare",
-    "fields": [
-      {
-        "component": "text",
-        "name": "title",
-        "value": "",
-        "label": "Title",
         "valueType": "string"
       }
     ]

@@ -21,12 +21,6 @@
       "id": "compare",
       "fields": [
         {
-          "component": "text",
-          "name": "title",
-          "label": "Title",
-          "valueType": "string"
-        },
-        {
           "component": "container",
           "name": "compareItem1",
           "label": " Compare Item1",
