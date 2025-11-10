@@ -244,13 +244,13 @@
         "valueType": "string"
       },
       {
-        "component": "reference",
-        "valueType": "compareItem",
+        "component": "compareItem",
+        "model": "compareItem",
         "name": "LeftItem",
         "label": "Left Content"
       },
       {
-        "component": "reference",
+        "component": "compareItem",
         "valueType": "compareItem",
         "name": "rightItem",
         "label": "Right Content"
