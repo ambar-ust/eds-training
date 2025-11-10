@@ -180,6 +180,69 @@
     ]
   },
   {
+    "id": "compare",
+    "fields": [
+      {
+        "component": "text",
+        "name": "title",
+        "label": "Title",
+        "valueType": "string"
+      },
+      {
+        "component": "container",
+        "name": "compareItem1",
+        "label": " Compare Item1",
+        "multi": false,
+        "fields": [
+          {
+            "component": "reference",
+            "name": "image",
+            "label": "Image",
+            "valueType": "string"
+          },
+          {
+            "component": "text",
+            "name": "imageAlt",
+            "label": "Image Alt Text",
+            "valueType": "string"
+          },
+          {
+            "component": "text",
+            "name": "cardTitle",
+            "label": "Card Title",
+            "valueType": "string"
+          }
+        ]
+      },
+      {
+        "component": "container",
+        "name": "compareParamter",
+        "label": " Compare Parameters",
+        "multi": true,
+        "fields": [
+          {
+            "component": "text",
+            "name": "Title",
+            "label": "Title",
+            "valueType": "string"
+          },
+          {
+            "component": "text",
+            "name": "item1Value",
+            "label": "Item 1 Value",
+            "valueType": "string"
+          },
+          {
+            "component": "text",
+            "name": "item2Value",
+            "label": "Item 2 Value",
+            "valueType": "string"
+          }
+        ]
+      }
+    ]
+  },
+  {
     "id": "fragment",
     "fields": [
       {
@@ -212,41 +275,6 @@
         "value": "",
         "label": "Text",
         "valueType": "string"
-      }
-    ]
-  },
-  {
-    "id": "quote",
-    "fields": [
-      {
-        "component": "richtext",
-        "name": "quote",
-        "value": "",
-        "label": "Quote",
-        "valueType": "string"
-      },
-      {
-        "component": "text",
-        "valueType": "string",
-        "name": "author",
-        "label": "Author",
-        "value": ""
-      }
-    ]
-  },
-  {
-    "id": "compare",
-    "fields": [
-      {
-        "component": "richtext",
-        "name": "title",
-        "label": "Title",
-        "valueType": "string"
-      }
-    ],
-    "containers": [
-      {
-        "components": ["compareItem", "compareParameter"]
       }
     ]
   }
