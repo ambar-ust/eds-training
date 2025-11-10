@@ -15,7 +15,9 @@
       "columns",
       "fragment",
       "quote",
-      "compare"
+      "compare",
+      "compareItem",
+      "compareParameter"
     ]
   },
   {
