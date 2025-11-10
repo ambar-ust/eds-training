@@ -208,8 +208,34 @@
           },
           {
             "component": "text",
-            "name": "cardTitle",
-            "label": "Card Title",
+            "name": "item1Title",
+            "label": "Item 1 Title",
+            "valueType": "string"
+          }
+        ]
+      },
+      {
+        "component": "container",
+        "name": "compareItem2",
+        "label": " Compare Item2",
+        "multi": false,
+        "fields": [
+          {
+            "component": "reference",
+            "name": "image",
+            "label": "Image",
+            "valueType": "string"
+          },
+          {
+            "component": "text",
+            "name": "imageAlt",
+            "label": "Image Alt Text",
+            "valueType": "string"
+          },
+          {
+            "component": "text",
+            "name": "item2Title",
+            "label": "Item 2 Title",
             "valueType": "string"
           }
         ]
