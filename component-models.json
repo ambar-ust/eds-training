@@ -243,6 +243,11 @@
         "label": "Title",
         "valueType": "string"
       }
+    ],
+    "containers": [
+      {
+        "components": ["compareItem", "compareParameter"]
+      }
     ]
   },
   {
