@@ -233,5 +233,59 @@
         "value": ""
       }
     ]
+  },
+  {
+    "id": "compare",
+    "fields": [
+      {
+        "component": "richtext",
+        "name": "title",
+        "value": "",
+        "label": "Title",
+        "valueType": "string"
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "Left Content",
+        "label": "Left Content",
+        "value": ""
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "Right Content",
+        "label": "Right Content",
+        "value": ""
+      },
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "Right Content Image",
+        "label": "Right Content Image",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "Right Content Image Alt",
+        "label": "Right Content Image Alt",
+        "value": ""
+      },
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "Left Content Image",
+        "label": "Left Content Image",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "Left Content Image Alt",
+        "label": "Left Content Image Alt",
+        "value": ""
+      }
+    ]
   }
 ]
