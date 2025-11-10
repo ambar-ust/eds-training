@@ -19,8 +19,12 @@
     ]
   },
   {
-    "id": "cards",
-    "components": ["card"]
+    "id": "compare",
+    "components": ["compareItem", "compareParameter"]
+  },
+  {
+    "id": "columns",
+    "components": ["column"]
   },
   {
     "id": "columns",

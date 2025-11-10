@@ -244,23 +244,64 @@
         "valueType": "string"
       },
       {
-        "component": "richtext",
-        "valueType": "string",
-        "name": "LeftContent",
+        "component": "reference",
+        "valueType": "compareItem",
+        "name": "LeftItem",
         "label": "Left Content"
       },
       {
-        "component": "richtext",
-        "valueType": "string",
-        "name": "RightContent",
+        "component": "reference",
+        "valueType": "compareItem",
+        "name": "rightItem",
         "label": "Right Content"
+      }
+    ]
+  },
+  {
+    "id": "compareItem",
+    "fields": [
+      {
+        "component": "richtext",
+        "name": "title",
+        "label": "Title",
+        "valueType": "string"
       },
       {
         "component": "reference",
         "valueType": "string",
-        "name": "CompareImages",
-        "label": "Images",
-        "multi": true
+        "name": "image",
+        "label": "Image",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "imageAlt",
+        "label": "Alt",
+        "value": ""
+      }
+    ]
+  },
+  {
+    "id": "compareParameter",
+    "fields": [
+      {
+        "component": "richtext",
+        "name": "title",
+        "label": "Title",
+        "valueType": "string"
+      },
+      {
+        "component": "richtext",
+        "name": "leftValue",
+        "label": "leftValue",
+        "valueType": "string"
+      },
+      {
+        "component": "richtext",
+        "name": "rightValue",
+        "label": "rightValue",
+        "valueType": "string"
       }
     ]
   }
