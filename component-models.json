@@ -247,43 +247,43 @@
       {
         "component": "richtext",
         "valueType": "string",
-        "name": "Left Content",
-        "label": "Left Content",
+        "name": "LeftContent",
+        "label": "LeftContent",
         "value": ""
       },
       {
         "component": "richtext",
         "valueType": "string",
-        "name": "Right Content",
-        "label": "Right Content",
+        "name": "RightContent",
+        "label": "RightContent",
         "value": ""
       },
       {
         "component": "reference",
         "valueType": "string",
-        "name": "Right Content Image",
-        "label": "Right Content Image",
+        "name": "RightContentImage",
+        "label": "RightContentImage",
         "multi": false
       },
       {
         "component": "text",
         "valueType": "string",
-        "name": "Right Content Image Alt",
-        "label": "Right Content Image Alt",
+        "name": "RightContentImageAlt",
+        "label": "RightContentImageAlt",
         "value": ""
       },
       {
         "component": "reference",
         "valueType": "string",
-        "name": "Left Content Image",
-        "label": "Left Content Image",
+        "name": "LeftContentImage",
+        "label": "LeftContentImage",
         "multi": false
       },
       {
         "component": "text",
         "valueType": "string",
-        "name": "Left Content Image Alt",
-        "label": "Left Content Image Alt",
+        "name": "LeftContentImageAlt",
+        "label": "LeftContentImageAlt",
         "value": ""
       }
     ]
