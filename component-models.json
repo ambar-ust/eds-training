@@ -242,18 +242,6 @@
         "name": "title",
         "label": "Title",
         "valueType": "string"
-      },
-      {
-        "component": "compareItem",
-        "model": "compareItem",
-        "name": "LeftItem",
-        "label": "Left Content"
-      },
-      {
-        "component": "compareItem",
-        "valueType": "compareItem",
-        "name": "rightItem",
-        "label": "Right Content"
       }
     ]
   },
