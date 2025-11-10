@@ -240,7 +240,6 @@
       {
         "component": "richtext",
         "name": "title",
-        "value": "",
         "label": "Title",
         "valueType": "string"
       },
@@ -248,43 +247,20 @@
         "component": "richtext",
         "valueType": "string",
         "name": "LeftContent",
-        "label": "LeftContent",
-        "value": ""
+        "label": "Left Content"
       },
       {
         "component": "richtext",
         "valueType": "string",
         "name": "RightContent",
-        "label": "RightContent",
-        "value": ""
+        "label": "Right Content"
       },
       {
         "component": "reference",
         "valueType": "string",
-        "name": "RightContentImage",
-        "label": "RightContentImage",
-        "multi": false
-      },
-      {
-        "component": "text",
-        "valueType": "string",
-        "name": "RightContentImageAlt",
-        "label": "RightContentImageAlt",
-        "value": ""
-      },
-      {
-        "component": "reference",
-        "valueType": "string",
-        "name": "LeftContentImage",
-        "label": "LeftContentImage",
-        "multi": false
-      },
-      {
-        "component": "text",
-        "valueType": "string",
-        "name": "LeftContentImageAlt",
-        "label": "LeftContentImageAlt",
-        "value": ""
+        "name": "CompareImages",
+        "label": "Images",
+        "multi": true
       }
     ]
   }
