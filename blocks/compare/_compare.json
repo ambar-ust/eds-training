@@ -97,6 +97,12 @@
               "valueType": "string"
             }
           ]
+        },
+        {
+          "component": "text",
+          "name": "Title",
+          "label": "title",
+          "valueType": "string"
         }
       ]
     }
