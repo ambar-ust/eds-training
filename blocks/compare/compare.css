@@ -1,0 +1,103 @@
+.compare {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 24px;
+}
+
+.compare .compare-title {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.compare .compare-title h1,
+.compare .compare-title h2,
+.compare .compare-title h3,
+.compare .compare-title h4,
+.compare .compare-title h5,
+.compare .compare-title h6 {
+  margin: 0;
+  color: var(--heading-color);
+}
+
+.compare .compare-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: start;
+}
+
+.compare .compare-left,
+.compare .compare-right {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.compare .compare-left .compare-image,
+.compare .compare-right .compare-image {
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.compare .compare-left .compare-image img,
+.compare .compare-right .compare-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.compare .compare-left .compare-text,
+.compare .compare-right .compare-text {
+  text-align: center;
+}
+
+.compare .compare-left .compare-text p,
+.compare .compare-right .compare-text p {
+  margin: 0 0 16px;
+  line-height: 1.6;
+}
+
+.compare .compare-left .compare-text p:last-child,
+.compare .compare-right .compare-text p:last-child {
+  margin-bottom: 0;
+}
+
+/* Mobile responsiveness */
+@media (width < 768px) {
+  .compare {
+    padding: 24px 16px;
+  }
+  
+  .compare .compare-content {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  
+  .compare .compare-title {
+    margin-bottom: 32px;
+  }
+}
+
+/* Tablet responsiveness */
+@media (width >= 768px) and (width < 900px) {
+  .compare {
+    padding: 32px 20px;
+  }
+  
+  .compare .compare-content {
+    gap: 32px;
+  }
+}
+
+/* Large screen styles */
+@media (width >= 900px) {
+  .compare {
+    padding: 48px 32px;
+  }
+  
+  .compare .compare-content {
+    gap: 48px;
+  }
+}
