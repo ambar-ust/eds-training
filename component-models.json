@@ -249,53 +249,5 @@
         "components": ["compareItem", "compareParameter"]
       }
     ]
-  },
-  {
-    "id": "compareItem",
-    "fields": [
-      {
-        "component": "richtext",
-        "name": "title",
-        "label": "Title",
-        "valueType": "string"
-      },
-      {
-        "component": "reference",
-        "valueType": "string",
-        "name": "image",
-        "label": "Image",
-        "multi": false
-      },
-      {
-        "component": "text",
-        "valueType": "string",
-        "name": "imageAlt",
-        "label": "Alt",
-        "value": ""
-      }
-    ]
-  },
-  {
-    "id": "compareParameter",
-    "fields": [
-      {
-        "component": "richtext",
-        "name": "title",
-        "label": "Title",
-        "valueType": "string"
-      },
-      {
-        "component": "richtext",
-        "name": "leftValue",
-        "label": "leftValue",
-        "valueType": "string"
-      },
-      {
-        "component": "richtext",
-        "name": "rightValue",
-        "label": "rightValue",
-        "valueType": "string"
-      }
-    ]
   }
 ]

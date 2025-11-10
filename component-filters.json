@@ -15,15 +15,10 @@
       "columns",
       "fragment",
       "quote",
-      "compare",
-      "compareItem",
-      "compareParameter"
+      "compare"
     ]
   },
-  {
-    "id": "compare",
-    "components": ["compareItem", "compareParameter"]
-  },
+
   {
     "id": "columns",
     "components": ["column"]
