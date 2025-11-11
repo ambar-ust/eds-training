@@ -59,14 +59,8 @@
           "multi": true,
           "fields": [
             {
-              "component": "reference",
-              "name": "image",
-              "label": "Image",
-              "valueType": "string"
-            },
-            {
               "component": "text",
-              "name": "compare_parameterName",
+              "name": "compareParameterName",
               "label": "Parameter Name",
               "valueType": "string"
             },
@@ -90,7 +84,7 @@
   "filters": [
     {
       "id": "compare",
-      "components": ["text", "image", "compareParameter"]
+      "components": ["text", "image"]
     }
   ]
 }

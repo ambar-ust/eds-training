@@ -221,14 +221,8 @@
         "multi": true,
         "fields": [
           {
-            "component": "reference",
-            "name": "image",
-            "label": "Image",
-            "valueType": "string"
-          },
-          {
             "component": "text",
-            "name": "compare_parameterName",
+            "name": "compareParameterName",
             "label": "Parameter Name",
             "valueType": "string"
           },

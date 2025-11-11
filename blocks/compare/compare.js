@@ -5,7 +5,7 @@ export default function decorate(block) {
 
   // Get the items container from the second row
   const itemsRow = block.querySelector(':scope > div:nth-child(2)');
-  
+
   // Get any compareParameter blocks (they would be in subsequent rows)
   const parameterRows = block.querySelectorAll(':scope > div:nth-child(n+3)');
 
@@ -31,11 +31,11 @@ export default function decorate(block) {
     itemCells.forEach((cell, index) => {
       const itemDiv = document.createElement('div');
       itemDiv.className = `compare-item compare-item-${index + 1}`;
-      
+
       // Process item content (image, alt, name)
       const itemContent = cell.innerHTML;
       itemDiv.innerHTML = itemContent;
-      
+
       itemsContainer.appendChild(itemDiv);
     });
 

@@ -43,8 +43,7 @@
     "id": "compare",
     "components": [
       "text",
-      "image",
-      "compareParameter"
+      "image"
     ]
   }
 ]
