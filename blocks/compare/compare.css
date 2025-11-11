@@ -1,0 +1,250 @@
+/* Hero MotoCorp Product Comparison Component Styles */
+
+/* Custom Properties for Theme */
+:root {
+    --hero-primary: #e60012;
+    --hero-black: #1a1a1a;
+    --hero-white: #ffffff;
+    --hero-gray-light: #f5f5f5;
+    --hero-gray-medium: ##ededed;
+}
+
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.compare {
+    background: #ededed;
+}
+/* Container */
+.hero-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+    width: 100%;
+}
+
+/* Product Comparison Section */
+.productcomparison {
+    background-color: var(--hero-gray-light);
+    padding: 2rem 0;
+}
+
+.product-comparison {
+    position: relative;
+    overflow: hidden;
+    padding: 2rem 0;
+}
+
+.product-comparison__title {
+    font-size: 2rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    color: var(--hero-black);
+    margin-bottom: 2rem;
+    text-align: center;
+    padding-bottom: 0.5rem;
+}
+
+/* CSS Grid Layout */
+.comparison-grid {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 2rem;
+    align-items: center;
+}
+
+/* Desktop Side Images */
+.product-image-left,
+.product-image-right {
+    max-width: 270px;
+    height: auto;
+    object-fit: contain;
+}
+
+/* Mobile Images - Hidden on Desktop */
+.product-image-mobile-left,
+.product-image-mobile-right {
+    display: none;
+}
+
+.product-image-mobile-left {
+    grid-column: 1;
+}
+
+.product-image-mobile-right {
+    grid-column: 3;
+}
+
+/* Comparison Content Grid */
+.comparison-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1.125rem 1rem;
+    align-items: center;
+}
+
+/* Product Name Headers */
+.product-name-left,
+.product-name-right {
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-transform: uppercase;
+  
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.product-name-left {
+    grid-column: 1;
+    color: #e60012;
+
+}
+
+.product-name-right {
+    grid-column: 3;
+    color: #009fda;
+}
+
+/* Comparison Values */
+.value-left,
+.value-right {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--hero-primary);
+    text-align: center;
+}
+
+.value-left {
+    grid-column: 1;
+}
+
+.value-right {
+    grid-column: 3;
+}
+
+/* Comparison Labels */
+.label {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--hero-black);
+    text-align: center;
+    line-height: 1.4;
+    grid-column: 2;
+}
+
+/* Responsive Design */
+@media (min-width: 576px) {
+    .product-comparison {
+        padding: 5rem 0;
+    }
+    
+    .product-comparison__title {
+        font-size: 3rem;
+        padding-bottom: 4rem;
+        margin-bottom: 0;
+        font-family: "TSTAR-PRO-Heavy";
+        font-weight: 900;
+    -webkit-font-kerning: auto;
+    font-kerning: auto;
+    letter-spacing: normal;
+    line-height: 3.625rem;
+    }
+    
+    .product-name-left,
+    .product-name-right {
+        font-size: 1.75rem;
+    }
+}
+
+
+/* Mobile Layout */
+@media (max-width: 575px) {
+    /* Stack everything vertically on mobile */
+    .comparison-grid {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+    
+    /* Hide desktop side images */
+    .product-image-left,
+    .product-image-right {
+        display: none;
+    }
+    
+    /* Show mobile images */
+    .product-image-mobile-left,
+    .product-image-mobile-right {
+        display: block;
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        object-fit: contain;
+        grid-column: auto;
+    }
+    
+    /* Mobile headers alignment */
+    .product-name-left {
+        grid-column: auto;
+        text-align: left;
+        font-size: 1.25rem;
+        margin-bottom: 1rem;
+    }
+    
+    .product-name-right {
+        grid-column: auto;
+        text-align: right;
+        font-size: 1.25rem;
+        margin-bottom: 1rem;
+    }
+    
+    /* Adjust comparison content grid for mobile */
+    .comparison-content {
+        grid-template-columns: 5fr 2fr 5fr;
+        gap: 0.75rem 0.5rem;
+    }
+    
+    .product-comparison__title {
+        font-size: 2rem;
+    }
+    
+    .value-left,
+    .value-right {
+        font-size: 1rem;
+        grid-column: auto;
+    }
+    
+    .label {
+        font-size: 0.875rem;
+        grid-column: auto;
+    }
+}
+
+/* Focus States for Accessibility */
+.product-comparison:focus {
+    outline: 2px solid var(--hero-primary);
+    outline-offset: 4px;
+}
+
+
+
+h4,
+.h4 {
+  font-size:1.125rem;
+  -webkit-font-kerning:auto;
+  font-kerning:auto;
+  letter-spacing:normal;
+  line-height:1.5rem
+}
+@media(min-width: 1024px) {
+  h4,
+  .h4 {
+    font-size:1.5rem;
+    -webkit-font-kerning:auto;
+    font-kerning:auto;
+    letter-spacing:normal;
+    line-height:2rem
+  }
+}
