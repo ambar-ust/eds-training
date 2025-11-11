@@ -1,4 +1,5 @@
 import { moveInstrumentation } from '../../scripts/scripts.js';
+
 export default function decorate(block) {
   // Get the title from the first row
   const firstChild = block.querySelector('div');
