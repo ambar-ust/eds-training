@@ -36,7 +36,7 @@ export default function decorate(block) {
   // Create the comparison structure
   const section = document.createElement('section');
   section.className = 'product-comparison';
-  section.id = 'COMPARE';
+  section.id = 'COMPAREZ';
 
   // Create title
   const h2 = document.createElement('h2');
