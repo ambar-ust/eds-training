@@ -148,6 +148,6 @@ export default function decorate(block) {
   section.appendChild(wrapper);
 
   // Replace block content
-  block.innerHTML = '';
+  block.textContent = '';
   block.appendChild(section);
 }
