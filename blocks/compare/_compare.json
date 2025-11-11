@@ -40,7 +40,7 @@
             },
             {
               "component": "text",
-              "name": "compare_imageAlt",
+              "name": "imageAlt",
               "label": "Image Alt Text",
               "valueType": "string"
             },
