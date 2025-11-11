@@ -152,5 +152,5 @@ export default function decorate(block) {
 
   // Replace block content
   block.innerHTML = '';
-  block.appendChild(section);
+  block.append(section);
 }
