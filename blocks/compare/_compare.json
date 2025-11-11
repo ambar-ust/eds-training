@@ -22,13 +22,13 @@
       "fields": [
         {
           "component": "text",
-          "name": "title",
+          "name": "compare_title",
           "label": "Compare Title",
           "valueType": "string"
         },
         {
           "component": "container",
-          "name": "items",
+          "name": "compare_items",
           "label": "Compare Items",
           "multi": true,
           "fields": [
@@ -40,24 +40,49 @@
             },
             {
               "component": "text",
-              "name": "imageAlt",
+              "name": "compare_imageAlt",
               "label": "Image Alt Text",
               "valueType": "string"
             },
             {
               "component": "text",
-              "name": "itemName",
+              "name": "compare_itemName",
               "label": "Item Name",
               "valueType": "string"
             }
           ]
         },
         {
-          "component": "aem-content",
-          "name": "parameters",
-          "label": "Comparison Parameters",
-          "filter": "compareParameter",
-          "multi": true
+          "component": "container",
+          "name": "compare_parameters",
+          "label": "Compare Parameters",
+          "multi": true,
+          "fields": [
+            {
+              "component": "reference",
+              "name": "image",
+              "label": "Image",
+              "valueType": "string"
+            },
+            {
+              "component": "text",
+              "name": "compare_parameterName",
+              "label": "Parameter Name",
+              "valueType": "string"
+            },
+            {
+              "component": "text",
+              "name": "compare_item1Value",
+              "label": "Item 1 Value",
+              "valueType": "string"
+            },
+            {
+              "component": "text",
+              "name": "compare_item2Value",
+              "label": "Item 2 Value",
+              "valueType": "string"
+            }
+          ]
         }
       ]
     }

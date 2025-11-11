@@ -46,11 +46,5 @@
       "image",
       "compareParameter"
     ]
-  },
-  {
-    "id": "compareParameter",
-    "components": [
-      "text"
-    ]
   }
 ]
