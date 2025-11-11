@@ -1,8 +1,8 @@
+import { moveInstrumentation } from '../../scripts/scripts.js';
 export default function decorate(block) {
   // Get the title from the first row
-  const title =
-    block.querySelector(':scope > div > div')?.textContent?.trim() || 'Compare Products';
-
+  const firstChild = block.querySelector('div');
+  const title = firstChild?.querySelector('div')?.textContent?.trim() || 'Compare Products';
   // Parse the block structure
   const rows = [...block.querySelectorAll(':scope > div')];
 
@@ -54,6 +54,8 @@ export default function decorate(block) {
     leftSideImage.className = 'side-image';
     const leftImg = compareItems[0].img.cloneNode(true);
     leftImg.alt = compareItems[0].text;
+
+    moveInstrumentation(compareItems[0].img, leftImg);
     leftSideImage.appendChild(leftImg);
     wrapper.appendChild(leftSideImage);
   }
@@ -104,6 +106,7 @@ export default function decorate(block) {
     rightMobileDiv.className = 'right';
     const rightMobileImg = compareItems[1].img.cloneNode(true);
     rightMobileImg.alt = compareItems[1].text;
+    moveInstrumentation(compareItems[1].img, rightMobileImg);
     rightMobileDiv.appendChild(rightMobileImg);
     mobileImages.appendChild(rightMobileDiv);
   }
@@ -148,6 +151,6 @@ export default function decorate(block) {
   section.appendChild(wrapper);
 
   // Replace block content
-  block.textContent = '';
+  block.innerHTML = '';
   block.appendChild(section);
 }
