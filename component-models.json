@@ -180,6 +180,52 @@
     ]
   },
   {
+    "id": "compare_item",
+    "fields": [
+      {
+        "component": "reference",
+        "name": "image",
+        "label": "Image",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "name": "imageAlt",
+        "label": "Image Alt Text",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "name": "compare_itemName",
+        "label": "Item Name",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
+    "id": "compare_parameter",
+    "fields": [
+      {
+        "component": "text",
+        "name": "compareParameterName",
+        "label": "Parameter Name",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "name": "compare_item1Value",
+        "label": "Item 1 Value",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "name": "compare_item2Value",
+        "label": "Item 2 Value",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
     "id": "compare",
     "fields": [
       {
@@ -193,52 +239,14 @@
         "name": "compare_items",
         "label": "Compare Items",
         "multi": true,
-        "fields": [
-          {
-            "component": "reference",
-            "name": "image",
-            "label": "Image",
-            "valueType": "string"
-          },
-          {
-            "component": "text",
-            "name": "imageAlt",
-            "label": "Image Alt Text",
-            "valueType": "string"
-          },
-          {
-            "component": "text",
-            "name": "compare_itemName",
-            "label": "Item Name",
-            "valueType": "string"
-          }
-        ]
+        "type": "compare_item"
       },
       {
         "component": "container",
         "name": "compare_parameters",
         "label": "Compare Parameters",
         "multi": true,
-        "fields": [
-          {
-            "component": "text",
-            "name": "compareParameterName",
-            "label": "Parameter Name",
-            "valueType": "string"
-          },
-          {
-            "component": "text",
-            "name": "compare_item1Value",
-            "label": "Item 1 Value",
-            "valueType": "string"
-          },
-          {
-            "component": "text",
-            "name": "compare_item2Value",
-            "label": "Item 2 Value",
-            "valueType": "string"
-          }
-        ]
+        "type": "compare_parameter"
       }
     ]
   },
