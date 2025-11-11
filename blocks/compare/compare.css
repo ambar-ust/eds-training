@@ -4,7 +4,7 @@
 :root {
     --hero-primary: #e60012;
     --hero-black: #1a1a1a;
-    --hero-white: #ffffff;
+    --hero-white: #fff;
     --hero-gray-light: #f5f5f5;
     --hero-gray-medium: ##ededed;
 }
@@ -15,9 +15,11 @@
     padding: 0;
     box-sizing: border-box;
 }
+
 .compare {
     background: #ededed;
 }
+
 /* Container */
 .hero-container {
     max-width: 1200px;
@@ -38,7 +40,7 @@
     padding: 2rem 0;
 }
 
-.product-comparison__title {
+.product-comparison-title {
     font-size: 2rem;
     font-weight: 800;
     text-transform: uppercase;
@@ -92,7 +94,6 @@
     font-size: 1.5rem;
     font-weight: 700;
     text-transform: uppercase;
-  
     text-align: center;
     margin-bottom: 1.5rem;
 }
@@ -136,21 +137,20 @@
 }
 
 /* Responsive Design */
-@media (min-width: 576px) {
+@media (width >= 576px) {
     .product-comparison {
         padding: 5rem 0;
     }
     
-    .product-comparison__title {
+    .product-comparison-title {
         font-size: 3rem;
         padding-bottom: 4rem;
         margin-bottom: 0;
-        font-family: "TSTAR-PRO-Heavy";
+        font-family: TSTAR-PRO-Heavy, sans-serif;
         font-weight: 900;
-    -webkit-font-kerning: auto;
-    font-kerning: auto;
-    letter-spacing: normal;
-    line-height: 3.625rem;
+        font-kerning: auto;
+        letter-spacing: normal;
+        line-height: 3.625rem;
     }
     
     .product-name-left,
@@ -161,7 +161,7 @@
 
 
 /* Mobile Layout */
-@media (max-width: 575px) {
+@media (width <= 575px) {
     /* Stack everything vertically on mobile */
     .comparison-grid {
         grid-template-columns: 1fr;
@@ -206,7 +206,7 @@
         gap: 0.75rem 0.5rem;
     }
     
-    .product-comparison__title {
+    .product-comparison-title {
         font-size: 2rem;
     }
     
@@ -228,23 +228,20 @@
     outline-offset: 4px;
 }
 
-
-
 h4,
 .h4 {
-  font-size:1.125rem;
-  -webkit-font-kerning:auto;
-  font-kerning:auto;
-  letter-spacing:normal;
-  line-height:1.5rem
+  font-size: 1.125rem;
+  font-kerning: auto;
+  letter-spacing: normal;
+  line-height: 1.5rem;
 }
-@media(min-width: 1024px) {
+
+@media (width >= 1024px) {
   h4,
   .h4 {
-    font-size:1.5rem;
-    -webkit-font-kerning:auto;
-    font-kerning:auto;
-    letter-spacing:normal;
-    line-height:2rem
+    font-size: 1.5rem;
+    font-kerning: auto;
+    letter-spacing: normal;
+    line-height: 2rem;
   }
 }
