@@ -29,9 +29,36 @@
           }
         }
       }
+    },
+    {
+      "title": "Compare Parameter",
+      "id": "compareParameter",
+      "plugins": {
+        "xwalk": {
+          "page": {
+            "resourceType": "core/franklin/components/block/v1/block/item",
+            "template": {
+              "name": "Compare Parameter",
+              "model": "compareParameter"
+            }
+          }
+        }
+      }
     }
   ],
   "models": [
+    {
+      "id": "compare",
+      "fields": [
+        {
+          "component": "text",
+          "name": "text",
+          "value": "",
+          "label": "Title",
+          "valueType": "string"
+        }
+      ]
+    },
     {
       "id": "compareItem",
       "fields": [
@@ -43,10 +70,38 @@
           "multi": false
         },
         {
-          "component": "richtext",
+          "component": "text",
           "name": "text",
           "value": "",
           "label": "Text",
+          "valueType": "string"
+        }
+      ]
+    },
+    {
+      "id": "compareParameter",
+      "fields": [
+        {
+          "component": "text",
+          "name": "Parameter",
+          "value": "",
+          "label": "Parameter",
+          "valueType": "string"
+        },
+
+        {
+          "component": "text",
+          "name": "ParameterValue1",
+          "value": "",
+          "label": "ParameterValue1",
+          "valueType": "string"
+        },
+
+        {
+          "component": "text",
+          "name": "ParameterValue2",
+          "value": "",
+          "label": "ParameterValue2",
           "valueType": "string"
         }
       ]
@@ -55,7 +110,7 @@
   "filters": [
     {
       "id": "compare",
-      "components": ["compareItem"]
+      "components": ["compareItem", "compareParameter"]
     }
   ]
 }

@@ -158,6 +158,21 @@
           }
         },
         {
+          "title": "Compare Parameter",
+          "id": "compareParameter",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block/item",
+                "template": {
+                  "name": "Compare Parameter",
+                  "model": "compareParameter"
+                }
+              }
+            }
+          }
+        },
+        {
           "title": "Fragment",
           "id": "fragment",
           "plugins": {
