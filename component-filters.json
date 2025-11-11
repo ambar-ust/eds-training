@@ -13,8 +13,7 @@
       "hero",
       "cards",
       "columns",
-      "fragment",
-      "compare"
+      "fragment"
     ]
   },
   {
@@ -28,9 +27,5 @@
   {
     "id": "column",
     "components": ["text", "image", "button", "title"]
-  },
-  {
-    "id": "compare",
-    "components": ["text", "image"]
   }
 ]
