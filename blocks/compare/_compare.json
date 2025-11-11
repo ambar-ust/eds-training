@@ -10,7 +10,7 @@
             "template": {
               "name": "Compare",
               "filter": "compare",
-              "title": "Title"
+              "model": "compare"
             }
           }
         }
@@ -53,7 +53,7 @@
       "fields": [
         {
           "component": "text",
-          "name": "title",
+          "name": "text",
           "value": "",
           "label": "Title",
           "valueType": "string"
