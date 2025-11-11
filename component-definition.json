@@ -137,7 +137,7 @@
                 "template": {
                   "name": "Compare",
                   "filter": "compare",
-                  "model": "compare"
+                  "title": "Title"
                 }
               }
             }

@@ -184,7 +184,7 @@
     "fields": [
       {
         "component": "text",
-        "name": "text",
+        "name": "title",
         "value": "",
         "label": "Title",
         "valueType": "string"
