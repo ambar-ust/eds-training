@@ -1,144 +1,246 @@
-import { div, h2, h3, h4, section } from '../../scripts/dom-helpers.js';
-
-export default function decorate(block) {
-  // Get the title from the first row
+/**
+ * Extracts the title from the first row of the block
+ */
+function extractTitle(block) {
   const firstChild = block.querySelector('div');
-  const title = firstChild?.querySelector('div')?.textContent?.trim() || 'Compare Products';
-  // Parse the block structure
-  const rows = [...block.querySelectorAll(':scope > div')];
+  return firstChild?.querySelector('div')?.textContent?.trim() || 'Compare Products';
+}
 
-  // First row is title, next two rows are compareItems, rest are compareParameters
+/**
+ * Checks if a row represents a compare item (has image and text)
+ */
+function isCompareItem(cells) {
+  return cells.length === 2 && cells[0].querySelector('picture, img');
+}
+
+/**
+ * Checks if a row represents a compare parameter (has 3 values)
+ */
+function isCompareParameter(cells) {
+  return cells.length === 3;
+}
+
+/**
+ * Parses a compare item row into an object
+ */
+function parseCompareItem(cells) {
+  const img = cells[0].querySelector('picture, img');
+  const text = cells[1]?.textContent?.trim() || '';
+  return { img, text };
+}
+
+/**
+ * Parses a compare parameter row into an object
+ */
+function parseCompareParameter(cells) {
+  return {
+    paramValue1: cells[1]?.textContent?.trim() || '',
+    paramLabel: cells[0]?.textContent?.trim() || '',
+    paramValue2: cells[2]?.textContent?.trim() || '',
+  };
+}
+
+/**
+ * Parses the block structure and extracts compare items and parameters
+ */
+function parseBlockStructure(block) {
+  const rows = [...block.querySelectorAll(':scope > div')];
   const compareItems = [];
   const compareParameters = [];
 
   rows.forEach((row, index) => {
     if (index === 0) {
-      // Skip title row
-      return;
+      return; // Skip title row
     }
 
     const cells = [...row.querySelectorAll(':scope > div')];
 
-    // Check if this is a compareItem (has image and text) or compareParameter (has 3 values)
-    if (cells.length === 2 && cells[0].querySelector('picture, img')) {
-      // This is a compareItem
-      const img = cells[0].querySelector('picture, img');
-      const textCell = cells[1];
-      const text = textCell?.textContent?.trim() || '';
-      compareItems.push({ img, text, textCell });
-    } else if (cells.length === 3) {
-      // This is a compareParameter
-      const labelCell = cells[0];
-      const value1Cell = cells[1];
-      const value2Cell = cells[2];
-      const paramValue1 = value1Cell?.textContent?.trim() || '';
-      const paramLabel = labelCell?.textContent?.trim() || '';
-      const paramValue2 = value2Cell?.textContent?.trim() || '';
-      compareParameters.push({
-        paramValue1,
-        paramLabel,
-        paramValue2,
-        labelCell,
-        value1Cell,
-        value2Cell,
-      });
+    if (isCompareItem(cells)) {
+      compareItems.push(parseCompareItem(cells));
+    } else if (isCompareParameter(cells)) {
+      compareParameters.push(parseCompareParameter(cells));
     }
   });
 
-  // Create title element
-  const titleEl = h2({ class: 'title' }, title);
+  return { compareItems, compareParameters };
+}
 
-  // Left side image
-  const leftSideImage = compareItems[0]
-    ? (() => {
-        const leftImg = compareItems[0].img.cloneNode(true);
-        leftImg.alt = compareItems[0].text;
+/**
+ * Creates a side image element for desktop view
+ */
+function createSideImage(compareItem) {
+  if (!compareItem) return null;
 
-        return div({ class: 'side-image' }, leftImg);
-      })()
-    : null;
+  const sideImage = document.createElement('div');
+  sideImage.className = 'side-image';
 
-  // Header grid with product names
-  const leftSubtitle = compareItems[0]
-    ? (() => {
-        h3({ class: 'subtitle left' }, compareItems[0].text);
-      })()
-    : null;
+  const img = compareItem.img.cloneNode(true);
+  img.alt = compareItem.text;
 
-  const rightSubtitle = compareItems[1]
-    ? (() => {
-        const subtitle = h3({ class: 'subtitle right' }, compareItems[1].text);
+  sideImage.appendChild(img);
+  return sideImage;
+}
 
-        return subtitle;
-      })()
-    : null;
+/**
+ * Creates the header grid with product names
+ */
+function createHeaderGrid(compareItems) {
+  const headerGrid = document.createElement('div');
+  headerGrid.className = 'header-grid';
 
-  const headerGrid = div(
-    { class: 'header-grid' },
-    ...[leftSubtitle, div(), rightSubtitle].filter(Boolean),
-  );
+  // Left subtitle
+  if (compareItems[0]) {
+    const leftSubtitle = document.createElement('h3');
+    leftSubtitle.className = 'subtitle left';
+    leftSubtitle.textContent = compareItems[0].text;
+    headerGrid.appendChild(leftSubtitle);
+  }
 
-  // Mobile images
-  const leftMobileDiv = compareItems[0]
-    ? (() => {
-        const leftMobileImg = compareItems[0].img.cloneNode(true);
-        leftMobileImg.alt = compareItems[0].text;
+  // Empty middle cell
+  headerGrid.appendChild(document.createElement('div'));
 
-        return div({ class: 'left' }, leftMobileImg);
-      })()
-    : null;
+  // Right subtitle
+  if (compareItems[1]) {
+    const rightSubtitle = document.createElement('h3');
+    rightSubtitle.className = 'subtitle right';
+    rightSubtitle.textContent = compareItems[1].text;
+    headerGrid.appendChild(rightSubtitle);
+  }
 
-  const rightMobileDiv = compareItems[1]
-    ? (() => {
-        const rightMobileImg = compareItems[1].img.cloneNode(true);
-        rightMobileImg.alt = compareItems[1].text;
+  return headerGrid;
+}
 
-        return div({ class: 'right' }, rightMobileImg);
-      })()
-    : null;
+/**
+ * Creates mobile images section
+ */
+function createMobileImages(compareItems) {
+  const mobileImages = document.createElement('div');
+  mobileImages.className = 'mobile-images';
 
-  const mobileImages = div(
-    { class: 'mobile-images' },
-    ...[leftMobileDiv, div(), rightMobileDiv].filter(Boolean),
-  );
+  // Left mobile image
+  if (compareItems[0]) {
+    const leftMobileDiv = document.createElement('div');
+    leftMobileDiv.className = 'left';
+    const leftMobileImg = compareItems[0].img.cloneNode(true);
+    leftMobileImg.alt = compareItems[0].text;
+    leftMobileDiv.appendChild(leftMobileImg);
+    mobileImages.appendChild(leftMobileDiv);
+  }
 
-  // Comparison rows for parameters
-  const comparisonRows = compareParameters.map((param) => {
-    const leftValue = h4({ class: 'comparison-value left' }, param.paramValue1);
+  // Empty middle cell
+  mobileImages.appendChild(document.createElement('div'));
 
-    const label = h4({ class: 'comparison-label' }, param.paramLabel);
+  // Right mobile image
+  if (compareItems[1]) {
+    const rightMobileDiv = document.createElement('div');
+    rightMobileDiv.className = 'right';
+    const rightMobileImg = compareItems[1].img.cloneNode(true);
+    rightMobileImg.alt = compareItems[1].text;
+    rightMobileDiv.appendChild(rightMobileImg);
+    mobileImages.appendChild(rightMobileDiv);
+  }
 
-    const rightValue = h4({ class: 'comparison-value right' }, param.paramValue2);
+  return mobileImages;
+}
 
-    return div({ class: 'comparison-row' }, leftValue, label, rightValue);
+/**
+ * Creates a comparison row for a parameter
+ */
+function createComparisonRow(param) {
+  const comparisonRow = document.createElement('div');
+  comparisonRow.className = 'comparison-row';
+
+  const leftValue = document.createElement('h4');
+  leftValue.className = 'comparison-value left';
+  leftValue.textContent = param.paramValue1;
+  comparisonRow.appendChild(leftValue);
+
+  const label = document.createElement('h4');
+  label.className = 'comparison-label';
+  label.textContent = param.paramLabel;
+  comparisonRow.appendChild(label);
+
+  const rightValue = document.createElement('h4');
+  rightValue.className = 'comparison-value right';
+  rightValue.textContent = param.paramValue2;
+  comparisonRow.appendChild(rightValue);
+
+  return comparisonRow;
+}
+
+/**
+ * Creates the comparison content section
+ */
+function createComparisonContent(compareItems, compareParameters) {
+  const comparisonContent = document.createElement('div');
+  comparisonContent.className = 'comparison-content';
+
+  // Add header grid
+  comparisonContent.appendChild(createHeaderGrid(compareItems));
+
+  // Add mobile images
+  comparisonContent.appendChild(createMobileImages(compareItems));
+
+  // Add comparison rows for parameters
+  compareParameters.forEach((param) => {
+    comparisonContent.appendChild(createComparisonRow(param));
   });
 
-  // Comparison content
-  const comparisonContent = div(
-    { class: 'comparison-content' },
-    headerGrid,
-    mobileImages,
-    ...comparisonRows,
-  );
+  return comparisonContent;
+}
 
-  // Right side image
-  const rightSideImage = compareItems[1]
-    ? (() => {
-        const rightImg = compareItems[1].img.cloneNode(true);
-        rightImg.alt = compareItems[1].text;
-      })()
-    : null;
+/**
+ * Creates the main comparison structure
+ */
+function createComparisonStructure(title, compareItems, compareParameters) {
+  const section = document.createElement('section');
+  section.className = 'product-comparison';
+  section.id = 'COMPAREZ';
+
+  // Create title
+  const h2 = document.createElement('h2');
+  h2.className = 'title';
+  h2.textContent = title;
+  section.appendChild(h2);
 
   // Create comparison wrapper
-  const wrapper = div(
-    { class: 'comparison-wrapper' },
-    ...[leftSideImage, comparisonContent, rightSideImage].filter(Boolean),
-  );
+  const wrapper = document.createElement('div');
+  wrapper.className = 'comparison-wrapper';
 
-  // Create the comparison structure
-  const sectionEl = section({ class: 'product-comparison', id: 'COMPAREZ' }, titleEl, wrapper);
+  // Add left side image
+  const leftSideImage = createSideImage(compareItems[0]);
+  if (leftSideImage) {
+    wrapper.appendChild(leftSideImage);
+  }
+
+  // Add comparison content
+  wrapper.appendChild(createComparisonContent(compareItems, compareParameters));
+
+  // Add right side image
+  const rightSideImage = createSideImage(compareItems[1]);
+  if (rightSideImage) {
+    wrapper.appendChild(rightSideImage);
+  }
+
+  section.appendChild(wrapper);
+  return section;
+}
+
+/**
+ * Main decorator function for the compare block
+ */
+export default function decorate(block) {
+  const isAuthor = window?.origin !== undefined && window?.origin.includes('author');
+
+  if (isAuthor) {
+    return;
+  }
+  const title = extractTitle(block);
+  const { compareItems, compareParameters } = parseBlockStructure(block);
+
+  const comparisonStructure = createComparisonStructure(title, compareItems, compareParameters);
 
   // Replace block content
   block.innerHTML = '';
-  block.append(sectionEl);
+  block.append(comparisonStructure);
 }
