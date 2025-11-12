@@ -1,5 +1,4 @@
 import { div, h2, h3, h4, section } from '../../scripts/dom-helpers.js';
-import { moveInstrumentation } from '../../scripts/scripts.js';
 
 export default function decorate(block) {
   // Get the title from the first row
@@ -48,14 +47,13 @@ export default function decorate(block) {
 
   // Create title element
   const titleEl = h2({ class: 'title' }, title);
-  moveInstrumentation(firstChild, titleEl);
 
   // Left side image
   const leftSideImage = compareItems[0]
     ? (() => {
         const leftImg = compareItems[0].img.cloneNode(true);
         leftImg.alt = compareItems[0].text;
-        moveInstrumentation(compareItems[0].img, leftImg);
+
         return div({ class: 'side-image' }, leftImg);
       })()
     : null;
@@ -63,16 +61,14 @@ export default function decorate(block) {
   // Header grid with product names
   const leftSubtitle = compareItems[0]
     ? (() => {
-        const subtitle = h3({ class: 'subtitle left' }, compareItems[0].text);
-        moveInstrumentation(compareItems[0].textCell, subtitle);
-        return subtitle;
+        h3({ class: 'subtitle left' }, compareItems[0].text);
       })()
     : null;
 
   const rightSubtitle = compareItems[1]
     ? (() => {
         const subtitle = h3({ class: 'subtitle right' }, compareItems[1].text);
-        moveInstrumentation(compareItems[1].textCell, subtitle);
+
         return subtitle;
       })()
     : null;
@@ -87,7 +83,7 @@ export default function decorate(block) {
     ? (() => {
         const leftMobileImg = compareItems[0].img.cloneNode(true);
         leftMobileImg.alt = compareItems[0].text;
-        moveInstrumentation(compareItems[0].img, leftMobileImg);
+
         return div({ class: 'left' }, leftMobileImg);
       })()
     : null;
@@ -96,7 +92,7 @@ export default function decorate(block) {
     ? (() => {
         const rightMobileImg = compareItems[1].img.cloneNode(true);
         rightMobileImg.alt = compareItems[1].text;
-        moveInstrumentation(compareItems[1].img, rightMobileImg);
+
         return div({ class: 'right' }, rightMobileImg);
       })()
     : null;
@@ -109,13 +105,10 @@ export default function decorate(block) {
   // Comparison rows for parameters
   const comparisonRows = compareParameters.map((param) => {
     const leftValue = h4({ class: 'comparison-value left' }, param.paramValue1);
-    moveInstrumentation(param.value1Cell, leftValue);
 
     const label = h4({ class: 'comparison-label' }, param.paramLabel);
-    moveInstrumentation(param.labelCell, label);
 
     const rightValue = h4({ class: 'comparison-value right' }, param.paramValue2);
-    moveInstrumentation(param.value2Cell, rightValue);
 
     return div({ class: 'comparison-row' }, leftValue, label, rightValue);
   });
@@ -133,8 +126,6 @@ export default function decorate(block) {
     ? (() => {
         const rightImg = compareItems[1].img.cloneNode(true);
         rightImg.alt = compareItems[1].text;
-        moveInstrumentation(compareItems[1].img, rightImg);
-        return div({ class: 'side-image' }, rightImg);
       })()
     : null;
 
