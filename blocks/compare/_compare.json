@@ -94,7 +94,7 @@
           "component": "text",
           "name": "ParameterValue1",
           "value": "",
-          "label": "ParameterValue1",
+          "label": "Left Parameter Value",
           "valueType": "string"
         },
 
@@ -102,7 +102,7 @@
           "component": "text",
           "name": "ParameterValue2",
           "value": "",
-          "label": "ParameterValue2",
+          "label": "Right Parameter Value",
           "valueType": "string"
         }
       ]
