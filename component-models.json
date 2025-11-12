@@ -271,5 +271,124 @@
         "valueType": "string"
       }
     ]
+  },
+  {
+    "id": "product-overview",
+    "fields": [
+      {
+        "component": "select",
+        "label": "Component Theme",
+        "name": "overview_component-theme",
+        "valueType": "string",
+        "options": [
+          {
+            "name": "Practical",
+            "value": "theme-practical"
+          },
+          {
+            "name": "Executive",
+            "value": "theme-executive"
+          },
+          {
+            "name": "Performance",
+            "value": "theme-performance"
+          },
+          {
+            "name": "Scooter",
+            "value": "theme-scooter"
+          },
+          {
+            "name": "Xoom Scooter",
+            "value": "theme-xoom-scooter"
+          }
+        ]
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "overview_heading",
+        "label": "Heading"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "overview_notes",
+        "label": "Notes"
+      },
+      {
+        "component": "container",
+        "name": "overview_primary-cta",
+        "label": "Primary CTA Details",
+        "collapsible": true,
+        "fields": [
+          {
+            "component": "text",
+            "label": "Primary CTA Label",
+            "name": "primary_cta-label",
+            "valueType": "string"
+          },
+          {
+            "component": "text",
+            "name": "primary_cta-link",
+            "label": "Primary CTA Link",
+            "valueType": "string"
+          },
+          {
+            "component": "text",
+            "name": "primary_cta-icon",
+            "label": "Primary CTA Icon ClassName",
+            "valueType": "string"
+          }
+        ]
+      },
+      {
+        "component": "container",
+        "name": "overview_secondary-cta",
+        "label": "Secondary CTA Details",
+        "collapsible": true,
+        "fields": [
+          {
+            "component": "text",
+            "label": "Secondary CTA Label",
+            "name": "secondary_cta-label",
+            "valueType": "string"
+          },
+          {
+            "component": "text",
+            "name": "secondary_cta-link",
+            "label": "Secondary CTA Link",
+            "valueType": "string"
+          },
+          {
+            "component": "text",
+            "name": "secondary_cta-icon",
+            "label": "Secondary CTA Icon ClassName",
+            "valueType": "string"
+          }
+        ]
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "overview_api-url",
+        "label": "Product API Endpoint"
+      },
+      {
+        "component": "select",
+        "label": "Swatch Shape",
+        "name": "overview_swatch-sahpe",
+        "valueType": "string",
+        "options": [
+          {
+            "name": "Circle",
+            "value": "circle"
+          },
+          {
+            "name": "Square",
+            "value": "square"
+          }
+        ]
+      }
+    ]
   }
 ]

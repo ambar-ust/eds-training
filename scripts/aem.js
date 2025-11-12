@@ -13,16 +13,18 @@
 /* eslint-env browser */
 function sampleRUM(checkpoint, data) {
   // eslint-disable-next-line max-len
-  const timeShift = () => (window.performance ? window.performance.now() : Date.now() - window.hlx.rum.firstReadTime);
+  const timeShift = () =>
+    window.performance ? window.performance.now() : Date.now() - window.hlx.rum.firstReadTime;
   try {
     window.hlx = window.hlx || {};
     if (!window.hlx.rum) {
       sampleRUM.enhance = () => {};
       const param = new URLSearchParams(window.location.search).get('rum');
-      const weight = (param === 'on' && 1)
-        || (window.SAMPLE_PAGEVIEWS_AT_RATE === 'high' && 10)
-        || (window.SAMPLE_PAGEVIEWS_AT_RATE === 'low' && 1000)
-        || 100;
+      const weight =
+        (param === 'on' && 1) ||
+        (window.SAMPLE_PAGEVIEWS_AT_RATE === 'high' && 10) ||
+        (window.SAMPLE_PAGEVIEWS_AT_RATE === 'low' && 1000) ||
+        100;
       const id = Math.random().toString(36).slice(-4);
       const isSelected = param !== 'off' && Math.random() * weight < 1;
       // eslint-disable-next-line object-curly-newline, max-len
@@ -69,7 +71,8 @@ function sampleRUM(checkpoint, data) {
           sampleRUM('error', errData);
         });
 
-        sampleRUM.baseURL = sampleRUM.baseURL || new URL(window.RUM_BASE || '/', new URL('https://rum.hlx.page'));
+        sampleRUM.baseURL =
+          sampleRUM.baseURL || new URL(window.RUM_BASE || '/', new URL('https://rum.hlx.page'));
         sampleRUM.collectBaseURL = sampleRUM.collectBaseURL || sampleRUM.baseURL;
         sampleRUM.sendPing = (ck, time, pingData = {}) => {
           // eslint-disable-next-line max-len, object-curly-newline
@@ -88,9 +91,10 @@ function sampleRUM(checkpoint, data) {
             `.rum/${weight}${urlParams}`,
             sampleRUM.collectBaseURL,
           );
-          const body = origin === window.location.origin
-            ? new Blob([rumData], { type: 'application/json' })
-            : rumData;
+          const body =
+            origin === window.location.origin
+              ? new Blob([rumData], { type: 'application/json' })
+              : rumData;
           navigator.sendBeacon(url, body);
           // eslint-disable-next-line no-console
           console.debug(`ping:${ck}`, pingData);
@@ -170,10 +174,10 @@ function init() {
 function toClassName(name) {
   return typeof name === 'string'
     ? name
-      .toLowerCase()
-      .replace(/[^0-9a-z]/gi, '-')
-      .replace(/-+/g, '-')
-      .replace(/^-|-$/g, '')
+        .toLowerCase()
+        .replace(/[^0-9a-z]/gi, '-')
+        .replace(/-+/g, '-')
+        .replace(/^-|-$/g, '')
     : '';
 }
 
@@ -376,9 +380,12 @@ function wrapTextNodes(block) {
     [...el.attributes]
       // move the instrumentation from the cell to the new paragraph, also keep the class
       // in case the content is a buttton and the cell the button-container
-      .filter(({ nodeName }) => nodeName === 'class'
-        || nodeName.startsWith('data-aue')
-        || nodeName.startsWith('data-richtext'))
+      .filter(
+        ({ nodeName }) =>
+          nodeName === 'class' ||
+          nodeName.startsWith('data-aue') ||
+          nodeName.startsWith('data-richtext'),
+      )
       .forEach(({ nodeName, nodeValue }) => {
         wrapper.setAttribute(nodeName, nodeValue);
         el.removeAttribute(nodeName);
@@ -388,13 +395,14 @@ function wrapTextNodes(block) {
 
   block.querySelectorAll(':scope > div > div').forEach((blockColumn) => {
     if (blockColumn.hasChildNodes()) {
-      const hasWrapper = !!blockColumn.firstElementChild
-        && validWrappers.some((tagName) => blockColumn.firstElementChild.tagName === tagName);
+      const hasWrapper =
+        !!blockColumn.firstElementChild &&
+        validWrappers.some((tagName) => blockColumn.firstElementChild.tagName === tagName);
       if (!hasWrapper) {
         wrap(blockColumn);
       } else if (
-        blockColumn.firstElementChild.tagName === 'PICTURE'
-        && (blockColumn.children.length > 1 || !!blockColumn.textContent.trim())
+        blockColumn.firstElementChild.tagName === 'PICTURE' &&
+        (blockColumn.children.length > 1 || !!blockColumn.textContent.trim())
       ) {
         wrap(blockColumn);
       }
@@ -418,19 +426,19 @@ function decorateButtons(element) {
           up.classList.add('button-container');
         }
         if (
-          up.childNodes.length === 1
-          && up.tagName === 'STRONG'
-          && twoup.childNodes.length === 1
-          && twoup.tagName === 'P'
+          up.childNodes.length === 1 &&
+          up.tagName === 'STRONG' &&
+          twoup.childNodes.length === 1 &&
+          twoup.tagName === 'P'
         ) {
           a.className = 'button primary';
           twoup.classList.add('button-container');
         }
         if (
-          up.childNodes.length === 1
-          && up.tagName === 'EM'
-          && twoup.childNodes.length === 1
-          && twoup.tagName === 'P'
+          up.childNodes.length === 1 &&
+          up.tagName === 'EM' &&
+          twoup.childNodes.length === 1 &&
+          twoup.tagName === 'P'
         ) {
           a.className = 'button secondary';
           twoup.classList.add('button-container');
@@ -687,6 +695,43 @@ async function loadSections(element) {
   }
 }
 
+/**
+ * Gets placeholders object.
+ * @param {string} [prefix] Location of placeholders
+ * @returns {object} Window placeholders object
+ */
+// eslint-disable-next-line import/prefer-default-export
+async function fetchPlaceholders(prefix = 'default') {
+  window.placeholders = window.placeholders || {};
+  if (!window.placeholders[prefix]) {
+    window.placeholders[prefix] = new Promise((resolve) => {
+      fetch(`${prefix === 'default' ? '' : prefix}/placeholders.json`)
+        .then((resp) => {
+          if (resp.ok) {
+            return resp.json();
+          }
+          return {};
+        })
+        .then((json) => {
+          const placeholders = {};
+          json.data
+            .filter((placeholder) => placeholder.Key)
+            .forEach((placeholder) => {
+              placeholders[toCamelCase(placeholder.Key)] = placeholder.Text;
+            });
+          window.placeholders[prefix] = placeholders;
+          resolve(window.placeholders[prefix]);
+        })
+        .catch(() => {
+          // error loading placeholders
+          window.placeholders[prefix] = {};
+          resolve(window.placeholders[prefix]);
+        });
+    });
+  }
+  return window.placeholders[`${prefix}`];
+}
+
 init();
 
 export {
@@ -713,4 +758,5 @@ export {
   toClassName,
   waitForFirstImage,
   wrapTextNodes,
+  fetchPlaceholders,
 };

@@ -4,6 +4,7 @@ module.exports = {
     'airbnb-base',
     'plugin:json/recommended',
     'plugin:xwalk/recommended',
+    'prettier', // Turns off ESLint rules that conflict with Prettier
   ],
   env: {
     browser: true,

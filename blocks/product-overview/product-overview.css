@@ -1,0 +1,419 @@
+.product-overview .theme-performance{
+    background: var(--bg-theme) no-repeat center !important;
+    background-size: cover;
+}
+
+.product-overview .overview-theme-wrapper {
+    background: var(--bg-theme);
+    color: var(--text-theme);
+}
+
+.product-overview .inner-theme-wrapper {
+    max-width: 96%;
+    margin: auto;
+    padding: 0.625rem 2.5rem 2.5rem;
+}
+
+.product-overview h2 {
+    text-align: center;
+    text-transform: uppercase;
+    font-style: italic;
+    font-weight: 900;
+    padding: 16px 0;
+    font-family: var(--tstar-heavy);
+}
+
+.product-overview .bike-selector-main-wrapper {
+    display: flex;
+    justify-content: space-around;
+}
+
+.product-overview .bike-selector-variants-wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 20.9375rem;
+    margin: 1.5rem 0;
+}
+
+.product-overview .bike-selector-variants-wrapper .radio-wrap {
+    max-height: 18.25rem;
+    overflow-y: auto;
+    direction: rtl;
+    padding-left: 10px;
+}
+
+.product-overview
+    .bike-selector-variants-wrapper
+    .radio-wrap::-webkit-scrollbar,
+.product-overview .colors-container .color-wrapp::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+.product-overview
+    .bike-selector-variants-wrapper
+    .radio-wrap::-webkit-scrollbar-track,
+.product-overview .colors-container .color-wrapp::-webkit-scrollbar-track {
+    background: var(--white);
+    border-radius: 7px;
+}
+
+.product-overview
+    .bike-selector-variants-wrapper
+    .radio-wrap::-webkit-scrollbar-thumb,
+.product-overview .colors-container .color-wrapp::-webkit-scrollbar-thumb {
+    border-radius: 7px;
+    background: var(--border-color);
+}
+
+.product-overview
+    .bike-selector-variants-wrapper
+    .radio-wrap::-webkit-scrollbar-thumb:window-inactive,
+.product-overview
+    .colors-container
+    .color-wrapp::-webkit-scrollbar-thumb:window-inactive {
+    background: var(--border-color);
+}
+
+.product-overview
+    .bike-selector-variants-wrapper
+    .radio-wrap
+    .bike-form-control {
+    direction: ltr;
+}
+
+.product-overview
+    .bike-selector-variants-wrapper
+    .variants-wrap
+    .radio-wrap
+    input[type="radio"] {
+    display: none;
+}
+
+.product-overview
+    .bike-selector-variants-wrapper
+    .variants-wrap
+    .radio-wrap
+    input[type="radio"]
+    + label::before {
+    content: "";
+    display: inline-block;
+    vertical-align: middle;
+    width: 1rem;
+    height: 1rem;
+    margin-right: 0.5rem;
+    margin-top: 4px;
+    border: 0.0625rem solid var(--silver);
+    border-radius: 50%;
+    aspect-ratio: 1 / 1; 
+    outline: 0.0625rem solid var(--black);
+}
+
+.product-overview
+    .bike-selector-variants-wrapper
+    .variants-wrap
+    .radio-wrap
+    input[type="radio"]:checked
+    + label::before {
+    background-color: var(--primary-color);
+    border: 5px solid var(--primary-color);
+    animation: radio-circle 0.4s ease-out forwards;
+    outline: 0.0625rem solid var(--radio-outline-color);
+    width: 0.5rem;
+    height: 0.5rem;
+}
+
+@keyframes radio-circle {
+    0% {
+        transform: scale(0);
+    }
+
+    50% {
+        transform: scale(1);
+    }
+
+    100% {
+        transform: scale(1);
+        background-color: #fff;
+        box-shadow: 0.6333px 0.6333px 1.2666px rgb(255 0 0 / 25%),
+            inset 0 2.5333px 2.5333px rgb(255 0 0 / 25%);
+    }
+}
+
+.product-overview
+    .bike-selector-variants-wrapper
+    .variants-wrap
+    .radio-wrap
+    .bike-form-control
+    .price-txt-wrap {
+    margin-bottom: 24px;
+    font-size: var(--font-size18);
+    font-family: var(--tstar-regular);
+    font-weight: 400;
+}
+
+.product-overview
+    .bike-selector-variants-wrapper
+    .variants-wrap
+    .radio-wrap
+    .bike-form-control
+    .price-txt-wrap
+    label {
+    display: flex;
+}
+
+.product-overview
+    .bike-selector-variants-wrapper
+    .variants-wrap
+    .radio-wrap
+    .bike-form-control
+    .price-txt-wrap
+    .price-sec {
+    padding-left: 22px;
+    margin-top: 4px;
+}
+
+.product-overview
+    .bike-selector-variants-wrapper
+    .variants-wrap
+    .radio-wrap
+    .bike-form-control.active
+    .price-txt-wrap {
+    font-family: var(--tstar-heavy);
+    font-weight: 900;
+}
+
+.product-overview .bike-selector-360-view {
+    width: 44.375rem;
+}
+
+.product-overview
+    .bike-selector-360-view
+    .hero-360
+    .hero-360
+    .spritespin-stage
+    .rotate {
+    width: 490px;
+    height: 320px;
+    position: relative;
+    left: 35px;
+}
+
+.product-overview .bike-selector-360-view .hero-360 .rotate-images {
+    display: flex;
+    justify-content: space-between;
+}
+
+.product-overview .bike-selector-360-view .hero-360 .rotate-images i {
+    width: 42px;
+    height: 42px;
+    font-size: var(--font-size42);
+}
+
+.product-overview .bike-selector-variants-wrapper .variants-wrap .text {
+    margin-bottom: 1rem;
+    font-family: var(--tstar-bold);
+    font-weight: 700;
+    line-height: 1.25;
+    font-size: var(--font-size24);
+}
+
+.product-overview .colors-container{
+    padding-top: 20px;
+}
+
+.product-overview .colors-container h4 {
+    text-align: right;
+    margin-bottom: 16px;
+}
+
+.product-overview .colors-container .color-wrapp {
+    max-height: 18.25rem;
+    width: 20.9375rem;
+    column-gap: 1.375rem;
+    overflow-y: auto;
+}
+
+.product-overview .colors-container .color-wrapp .color-option img.circle{
+    border-radius: 50%;
+}
+
+.product-overview .colors-container .color-wrapp .color-option img {
+    width: 2.5rem;
+    height: 2.5rem;
+    padding: 2px;
+}
+
+.product-overview .colors-container .color-wrapp .color-option.active img.circle{
+    border: .125rem solid var(--black);
+}
+
+.product-overview .colors-container .color-wrapp .color-option.active img {
+    background-color: var(--white);
+}
+
+.product-overview .colors-container .color-wrapp .color-option {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    gap: 15px;
+    font-family: var(--tstar-heavy);
+    font-size: var(--font-size18);
+    line-height: 24px;
+    margin: 0 16px 16px 0;
+    cursor: pointer;
+    font-weight: 900;
+}
+
+.product-overview .colors-container .color-wrapp .color-option > span {
+    font-family: var(--tstar-regular);
+    font-weight: 400;
+    text-transform: uppercase;
+}
+
+.product-overview .colors-container .color-wrapp .color-option.active > span {
+    font-family: var(--tstar-heavy);
+    font-weight: 900;
+}
+
+.product-overview .overview-bottom {
+    margin-top: 10px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.product-overview .overview-bottom .notes-info {
+    font-size: var(--font-size18);
+    letter-spacing: normal;
+    font-weight: 400;
+    padding-bottom: 4px;
+    font-family: var(--tstar-medium);
+}
+
+.product-overview .overview-bottom .button-wrapper {
+    position: absolute;
+    left: 50%;
+    display: flex;
+    gap: 48px;
+    transform: translateX(-50%);
+}
+
+
+@media (width < 1024px) {
+    .product-overview .inner-theme-wrapper{
+        padding: 1rem;
+    }
+
+    .product-overview .bike-selector-main-wrapper {
+        flex-direction: column;
+    }
+
+    .product-overview .bike-selector-variants-wrapper {
+        order: 2;
+        width: 100%;
+        margin: 12px 0;
+    }
+
+    .product-overview .bike-selector-variants-wrapper .variants-wrap .text{
+        font-size: var(--font-size18);
+    }
+
+    .product-overview .bike-selector-variants-wrapper .radio-wrap {
+        display: flex;
+        overflow-y: initial;
+        flex-wrap: wrap;
+        direction: ltr;
+    }
+
+    .product-overview
+        .bike-selector-variants-wrapper
+        .radio-wrap
+        .bike-form-control {
+        flex: 0 0 calc(50% - 8px);
+    }
+
+    .product-overview .bike-selector-variants-wrapper .variants-wrap .radio-wrap .bike-form-control .price-txt-wrap{
+        font-size: var(--font-size16);
+    }
+
+    .product-overview
+        .bike-selector-360-view
+        .hero-360
+        .hero-360
+        .spritespin-stage {
+        display: flex;
+        justify-content: center;
+    }
+
+    .product-overview
+        .bike-selector-360-view
+        .hero-360
+        .hero-360
+        .spritespin-stage
+        .rotate {
+        position: unset;
+        width: 100%;
+        height: 100%;
+    }
+
+    .product-overview .bike-selector-360-view {
+        order: 1;
+        width: 100%;
+    }
+
+    .product-overview .colors-container {
+        order: 3;
+        width: 100%;
+        padding-top: 24px;
+    }
+
+    .product-overview .colors-container h4{
+        text-align: left;
+    }
+
+    .product-overview .colors-container .color-wrapp{
+        display: flex;
+        width: 100%;
+    }
+
+    .product-overview .colors-container .color-wrapp .color-option{
+        flex-direction: column-reverse;
+        white-space: nowrap;
+        font-size: var(--font-size16);
+    }
+
+    .product-overview .bike-selector-variants-wrapper .radio-wrap::-webkit-scrollbar-track,
+    .product-overview .colors-container .color-wrapp::-webkit-scrollbar-track {
+        border-radius: 0;
+    }
+
+    .product-overview .bike-selector-variants-wrapper .radio-wrap::-webkit-scrollbar-thumb,
+    .product-overview .colors-container .color-wrapp::-webkit-scrollbar-thumb {
+        border-radius: 0;
+        border-bottom:-1px;
+    }
+
+    .product-overview .overview-bottom{
+        flex-direction: column;
+        margin-top:24px;
+        gap: 14px;
+    }
+    
+    .product-overview .overview-bottom .notes-info{
+        order: 2;
+        width: 100%;
+        font-size: var(--font-size16);
+    }
+
+    .product-overview .overview-bottom .button-wrapper{
+        position: initial;
+        transform: none;
+        gap: 12px;
+    }
+
+    .product-overview .overview-bottom .button-wrapper a{
+        font-size: var(--font-size14);
+    }
+}
