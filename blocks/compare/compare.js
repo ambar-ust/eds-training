@@ -1,6 +1,10 @@
 import { moveInstrumentation } from '../../scripts/scripts.js';
 
 export default function decorate(block) {
+  const isAuthor = window?.origin !== undefined && window?.origin.includes('author');
+  if (isAuthor) {
+    return;
+  }
   // Get the title from the first row
   const firstChild = block.querySelector('div');
   const title = firstChild?.querySelector('div')?.textContent?.trim() || 'Compare Products';
